@@ -8,10 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="240dp">
 
-        <com.hyf.loopvplibrary.LoopBannerView
-            android:id="@+id/banner_view"
+        <!--<com.hyf.loopvplibrary.LoopBannerView-->
+            <!--android:id="@+id/banner_view"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"></com.hyf.loopvplibrary.LoopBannerView>-->
+        <com.hyf.loopvplibrary.LoopViewPager
+            android:id="@+id/loop_view_pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></com.hyf.loopvplibrary.LoopBannerView>
+            android:layout_height="match_parent"></com.hyf.loopvplibrary.LoopViewPager>
 
         <com.hyf.loopvplibrary.CircleIndicator
             android:id="@+id/circle_indicator"
