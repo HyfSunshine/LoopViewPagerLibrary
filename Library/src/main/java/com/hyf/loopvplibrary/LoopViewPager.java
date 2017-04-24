@@ -38,8 +38,13 @@ public class LoopViewPager extends ViewPager{
         @Override
         public void handleMessage(Message msg) {
             if (autoPlay && adapter.getCount()>0){
+                int count = adapter.getCount();
                 int current = getCurrentItem();
-                setCurrentItem(++current,true);
+                if (current == count-1){
+                    setCurrentItem(0,true);
+                }else {
+                    setCurrentItem(++current, true);
+                }
             }
         }
     };
@@ -48,17 +53,21 @@ public class LoopViewPager extends ViewPager{
     private long delayTime = 5000;
 
     public void setAutoPlay(boolean autoPlay,long delayTime) {
-        this.autoPlay = autoPlay;
-        this.delayTime = delayTime;
-        //设置轮播时间
-        if (this.autoPlay) {
-            loopPictureIfNeed();
+        if (!this.autoPlay) {
+            this.autoPlay = autoPlay;
+            this.delayTime = delayTime >= 0 ? delayTime : this.delayTime;
+            //设置轮播时间
+            if (this.autoPlay) {
+                loopPictureIfNeed();
+            }
+        }else {
+            throw new RuntimeException("setAutoPlay() method only use once!");
         }
     }
 
     private void loopPictureIfNeed() {
         handler.removeMessages(MSG_LOOP_PICTURE);
-        handler.sendEmptyMessageDelayed(MSG_LOOP_PICTURE,delayTime>=0?delayTime:5000);
+        handler.sendEmptyMessageDelayed(MSG_LOOP_PICTURE,delayTime);
     }
 
     private OnPageChangeListener onPageChangeListener = new OnPageChangeListener() {

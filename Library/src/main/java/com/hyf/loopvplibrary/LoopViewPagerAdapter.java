@@ -20,21 +20,25 @@ public class LoopViewPagerAdapter extends PagerAdapter {
     private List<String> imageList;
 
     private ImageView.ScaleType scaleType = ImageView.ScaleType.CENTER_CROP;
+    private boolean isMaxValue = true;
+
+    public void setScaleType(ImageView.ScaleType scaleType) {
+        this.scaleType = scaleType;
+    }
+
+    public void setMaxValue(boolean maxValue) {
+        isMaxValue = maxValue;
+    }
 
     public LoopViewPagerAdapter(Context context, List<String> imageList) {
         this.context = context;
         this.imageList = imageList;
     }
 
-    public LoopViewPagerAdapter(Context context, List<String> imageList, ImageView.ScaleType scaleType) {
-        this.context = context;
-        this.imageList = imageList;
-        this.scaleType = scaleType;
-    }
 
     @Override
     public int getCount() {
-        return imageList.size()>0?Integer.MAX_VALUE:imageList.size();
+        return imageList.size()>0 && isMaxValue?Integer.MAX_VALUE:imageList.size();
     }
 
     @Override

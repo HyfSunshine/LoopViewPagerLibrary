@@ -170,7 +170,7 @@ public class CircleIndicator extends LinearLayout {
         animator.start();
     }
 
-    public int dip2px(float dpValue) {
+    private int dip2px(float dpValue) {
         final float scale = getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }

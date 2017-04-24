@@ -48,15 +48,22 @@ public class MainActivity extends BaseActivity {
 //        bannerView.setIsShowIndicator(true);
 //        bannerView.setData(images);
         LoopViewPagerAdapter adapter = new LoopViewPagerAdapter(this,images);
-        viewPager.setAutoPlay(true,5000);
+        adapter.setMaxValue(false);
+//        viewPager.setAutoPlay(true,5000);
         viewPager.setAdapter(adapter);
 //        indicator.setVisibility(View.GONE);
         indicator.setIndicatorColor(Color.parseColor("#369369"));
+        indicator.setIndicatorWidth(dip2px(8));
         indicator.setViewPager(viewPager,images.size());
     }
 
     @Override
     protected void initListener() {
 
+    }
+
+    private int dip2px(float dpValue) {
+        final float scale = getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
     }
 }
