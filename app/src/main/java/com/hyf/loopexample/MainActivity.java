@@ -2,11 +2,9 @@ package com.hyf.loopexample;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import com.hyf.loopvplibrary.CircleIndicator;
-import com.hyf.loopvplibrary.LoopBannerView;
 import com.hyf.loopvplibrary.LoopViewPager;
 import com.hyf.loopvplibrary.LoopViewPagerAdapter;
 
@@ -43,17 +41,12 @@ public class MainActivity extends BaseActivity {
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492942954128&di=ef05ca7f34fdeb8b9d69f50603fc8b1d&imgtype=0&src=http%3A%2F%2Fyouimg1.c-ctrip.com%2Ftarget%2Ftg%2F618%2F555%2F456%2Ff4b989835eb5401881fd8cda48447124.jpg");
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492942954123&di=f27d468cf3df990b5c3b398ee9df7b85&imgtype=0&src=http%3A%2F%2Fpic.eastlady.cn%2Fuploads%2Ftp%2F201703%2F9999%2F50839889fc.jpg");
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492942954123&di=cc54b4395a93b60e86189c729af0c26d&imgtype=0&src=http%3A%2F%2Fimg5.gomein.net.cn%2Fimage%2Fprodimg%2FproductDesc%2FdescImg%2F201401%2Fdesc6082%2F9128321450%2F3_01.jpg");
-//        bannerView.setIsLoop(true);
-//        bannerView.setIndicatorColor(Color.parseColor("#ff705e"));
-//        bannerView.setIsShowIndicator(true);
-//        bannerView.setData(images);
         LoopViewPagerAdapter adapter = new LoopViewPagerAdapter(this,images);
-        adapter.setMaxValue(false);
-//        viewPager.setAutoPlay(true,5000);
+//        adapter.setMaxValue(false);
+        viewPager.setAutoPlay(true,5000);
         viewPager.setAdapter(adapter);
-//        indicator.setVisibility(View.GONE);
         indicator.setIndicatorColor(Color.parseColor("#369369"));
-        indicator.setIndicatorWidth(dip2px(8));
+//        indicator.setIndicatorWidth(dip2px(8));
         indicator.setViewPager(viewPager,images.size());
     }
 

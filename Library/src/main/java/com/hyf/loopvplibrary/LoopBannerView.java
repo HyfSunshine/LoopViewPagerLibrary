@@ -21,7 +21,7 @@ import java.util.List;
  * Created by HeYongFeng on 2017/4/20.
  */
 
-public class LoopBannerView extends RelativeLayout{
+class LoopBannerView extends RelativeLayout{
     private static final String TAG = "LoopBannerView";
 
     private Context context;

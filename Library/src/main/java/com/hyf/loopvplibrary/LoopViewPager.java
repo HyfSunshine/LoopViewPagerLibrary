@@ -61,7 +61,7 @@ public class LoopViewPager extends ViewPager{
                 loopPictureIfNeed();
             }
         }else {
-            throw new RuntimeException("setAutoPlay() method only use once!");
+            throw new RuntimeException("setAutoPlay() method must be performed once!");
         }
     }
 
