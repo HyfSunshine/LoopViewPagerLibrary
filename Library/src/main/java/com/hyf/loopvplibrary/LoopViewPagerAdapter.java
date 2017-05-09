@@ -14,10 +14,10 @@ import java.util.List;
  * Created by Administrator on 2017/4/24 0024.
  */
 
-public class LoopViewPagerAdapter extends PagerAdapter {
+public class LoopViewPagerAdapter<T> extends PagerAdapter {
 
     private Context context;
-    private List<String> imageList;
+    private List<T> imageList;
 
     private ImageView.ScaleType scaleType = ImageView.ScaleType.CENTER_CROP;
     private boolean isMaxValue = true;
@@ -30,7 +30,7 @@ public class LoopViewPagerAdapter extends PagerAdapter {
         isMaxValue = maxValue;
     }
 
-    public LoopViewPagerAdapter(Context context, List<String> imageList) {
+    public LoopViewPagerAdapter(Context context, List<T> imageList) {
         this.context = context;
         this.imageList = imageList;
     }
