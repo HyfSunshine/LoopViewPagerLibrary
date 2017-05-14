@@ -41,6 +41,7 @@ public class LoopViewPagerAdapter<T> extends PagerAdapter {
         return imageList.size()>0 && isMaxValue?Integer.MAX_VALUE:imageList.size();
     }
 
+
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
