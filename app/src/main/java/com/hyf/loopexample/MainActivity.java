@@ -3,6 +3,7 @@ package com.hyf.loopexample;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.hyf.loopvplibrary.CircleIndicator;
 import com.hyf.loopvplibrary.LoopViewPager;
@@ -43,6 +44,7 @@ public class MainActivity extends BaseActivity {
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492942954123&di=cc54b4395a93b60e86189c729af0c26d&imgtype=0&src=http%3A%2F%2Fimg5.gomein.net.cn%2Fimage%2Fprodimg%2FproductDesc%2FdescImg%2F201401%2Fdesc6082%2F9128321450%2F3_01.jpg");
         LoopViewPagerAdapter adapter = new LoopViewPagerAdapter(this,images);
 //        adapter.setMaxValue(false);
+        adapter.setScaleType(ImageView.ScaleType.FIT_XY);
         viewPager.setAutoPlay(true,5000);
         viewPager.setAdapter(adapter);
         indicator.setIndicatorColor(Color.parseColor("#369369"));
