@@ -56,7 +56,7 @@ public class LoopViewPagerAdapter<T> extends PagerAdapter {
         position = position % imageList.size();
         ImageView imageView = new ImageView(context);
         imageView.setScaleType(scaleType);
-        Glide.with(context).load(imageList.get(position)).into(imageView);
+        Glide.with(context).load(imageList.get(position)).error(R.drawable.loop_view_placeholder).into(imageView);
         container.addView(imageView);
         return imageView;
     }
