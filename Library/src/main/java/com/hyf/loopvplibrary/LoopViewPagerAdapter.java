@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class LoopViewPagerAdapter<T> extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return imageList.size()>0 && isMaxValue?Integer.MAX_VALUE:imageList.size();
+        return imageList.size() > 0 && isMaxValue ? Integer.MAX_VALUE : imageList.size();
     }
 
 
@@ -57,7 +58,9 @@ public class LoopViewPagerAdapter<T> extends PagerAdapter {
         position = position % imageList.size();
         ImageView imageView = new ImageView(context);
         imageView.setScaleType(scaleType);
-        Glide.with(context).load(imageList.get(position)).error(R.drawable.loop_view_placeholder).into(imageView);
+        RequestOptions options = new RequestOptions()
+                .error(R.drawable.loop_view_placeholder);
+        Glide.with(context).load(imageList.get(position)).apply(options).into(imageView);
         container.addView(imageView);
         return imageView;
     }
